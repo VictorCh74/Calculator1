@@ -71,15 +71,6 @@ namespace Calculator
         }
     }
     
-    public class Minus  : Operation_ {
-    	public Minus(){
-    		signature = "-" ;
-        	priority = 4 ;
-    	}
-        override public double execute ( double a , double b = 0.0 ) {
-    		return (0-a) ;
-        }
-    }
     
 	public class BracketLeft  : Operation_ {
     	public BracketLeft(){
