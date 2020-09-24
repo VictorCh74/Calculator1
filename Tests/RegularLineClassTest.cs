@@ -10,6 +10,7 @@ using System;
 using Calculator ;
 using NUnit.Framework;
 
+
 namespace Tests
 {
 	[TestFixture]
@@ -18,11 +19,11 @@ namespace Tests
 		[Test]
 		public void TestRegularize()
 		{
-			var lineClass = new RegularLineClass ("1+2.4 -8p *(5+7) ") ;
+			var lineClass = new RegularLineClass ("-1.2+2.4 -8p *(-5+7) ") ;
 			
 			string result = lineClass.GetRegString() ;
 			
-			Assert.AreEqual( "1+2,4-8*(5+7)" , result) ;
+			Assert.AreEqual( "(0-1,2)+2,4-8*((0-5)+7)" , result) ;
 		}
 	}
 }

@@ -8,6 +8,7 @@
  */
 using System;
 using System.Text;
+using System.Text.RegularExpressions ;
 
 
 
@@ -15,13 +16,14 @@ using System.Text;
 namespace Calculator
 {
 	/// <summary>
-	/// Description of RegularLineClass.
+	///Класс упорядочения входной строки
 	/// </summary>
 	public class RegularLineClass
 	{
+		
 		string subjectString ;
 	
-		constant string avalabeleSymb = "0123456789+-*/^()," ;
+		string avalabeleSymb = "0123456789+-*/^()," ;
 		StringBuilder SB ;
 		
 		public RegularLineClass(string subjectString)
@@ -30,6 +32,8 @@ namespace Calculator
 		}
 		
 		void Regularize() {
+			
+	
 			SB = new StringBuilder(subjectString) ;
 			SB = SB.Replace('.' , ',');
 			foreach (char c in subjectString) {
@@ -37,11 +41,26 @@ namespace Calculator
 					SB = SB.Replace( c.ToString() , "") ;
 				}
 			}
+			
+			subjectString = SB.ToString() ;
+			
+			// работа с отрицательными числами во входном выражении. Замена вида: -2  -> (0-2) или (-2 -> ((0-2)...
+			Regex regExp = new Regex (@"^-\d+,?\d*|\(-\d+,?\d*") ;
+			MatchCollection mColl = regExp.Matches(subjectString ) ;
+			
+			foreach (Match m in mColl) {
+				
+				if(m.Value[0] == '-' )
+					subjectString = subjectString.Replace(m.Value , "(0" + m.Value +")") ;
+				else	
+					subjectString = subjectString.Replace(m.Value , "((0" + m.Value.Substring(1)+")" );
+			}
+
 		}
 		
 		public string GetRegString() {
 			Regularize() ;
-			return SB.ToString();
+			return subjectString;
 		}
 		
 		
