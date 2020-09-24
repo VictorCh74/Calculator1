@@ -81,16 +81,16 @@ namespace Calculator
     		return  a;
         }
     }
-
-   	public class BracketRight  : Operation_ {
+    
+    
+    public class BracketRight  : Operation_ {
     	public BracketRight(){
     		signature = ")" ;
-        	priority = 1 ;
+        	priority = 0 ;
     	}
-        override public double  execute ( double a , double b = 0.0 ) {
+        override public double execute ( double a , double b = 0.0  ) {
     		return  a;
         }
-    } 
-    
-    
+    }
+     
 }

@@ -24,8 +24,7 @@ namespace Calculator
 		
 		public ParserClass(string expression , RegLineAbstr regLIneEntity )
 		{
-			this.regLIneEntity = regLIneEntity ;
-		
+			this.regLIneEntity = regLIneEntity ;	
 			this.expression =  regLIneEntity.GetRegString(expression) ;
 		}
 		
@@ -45,13 +44,15 @@ namespace Calculator
 				}
 						
 				//если s - символ арифмет. операции			
-				if( operKit.GetSignatureList().Contains(s)) {
+				if( operKit.GetSignatureList().Contains(s) && s != "(") {
 					
 					//внести символ в стэк опреаций
 					if(operations.Count == 0 || operKit.GetPriorytiOf(s) > operKit.GetPriorytiOf(operations.Peek() )) {
 						operations.Push(s) ;
 						continue ;
 					}
+					
+	
 					
 					//перенести сиволы из стэка опреаций в выводную строку
 					if(operKit.GetPriorytiOf(s) <= operKit.GetPriorytiOf(operations.Peek() )){
@@ -68,12 +69,13 @@ namespace Calculator
 				}
 				
 				if( s == "(" ) {
-					operations.Push(s) ;
+					 operations.Push(s) ;
 				}
+				
 				
 				if( s == ")" ) {
 					
-					while(operations.Count > 1) {
+					while(operations.Count > 0) {
 						if(operations.Peek() == "(" ){
 							break ; 
 						} ;
@@ -82,14 +84,11 @@ namespace Calculator
 					operations.Pop() ;
 				}			
 			}
-			
-			if(operations.Count !=0) {
-				 
-				int removeCount = operations.Count ;
-					for(;removeCount > 0; removeCount--) {
+							 
+			while (operations.Count > 0) {
 					resLine.Add(operations.Pop()) ;
-				}
 			}
+			
 			
 			return resLine ;
 		}
