@@ -1,0 +1,9 @@
+E:\витя\Calculator\Tests\obj\Debug\Tests.csprojResolveAssemblyReference.cache
+E:\витя\Calculator\Tests\bin\Debug\Tests.dll.config
+E:\витя\Calculator\Tests\bin\Debug\Tests.dll
+E:\витя\Calculator\Tests\bin\Debug\Tests.pdb
+E:\витя\Calculator\Tests\bin\Debug\Calculator.exe
+E:\витя\Calculator\Tests\bin\Debug\NUnit.Framework.dll
+E:\витя\Calculator\Tests\bin\Debug\Calculator.pdb
+E:\витя\Calculator\Tests\obj\Debug\Tests.dll
+E:\витя\Calculator\Tests\obj\Debug\Tests.pdb
