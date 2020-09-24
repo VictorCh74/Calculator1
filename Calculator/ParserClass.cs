@@ -30,12 +30,12 @@ namespace Calculator
 		}
 		
 		// формирование обратной польской записи в формате списка строк
-		public List <string> GetRevPolNote(string expr) {
+		public List <string> GetRevPolNote() {
 			List<string > resLine =  new List<string> () ;
 			Stack<string> operations = new Stack<string> () ;
 	
 			//сформировать входную последовательность
-			string[] inputSequence = FormInputSequence(expr) ;
+			string[] inputSequence = FormInputSequence(expression) ;
 
 			foreach( string s in inputSequence ) {
 				//если s - число			
@@ -73,8 +73,7 @@ namespace Calculator
 				
 				if( s == ")" ) {
 					
-					int removeCount = operations.Count-1 ;
-					for(;; removeCount--) {
+					while(operations.Count > 1) {
 						if(operations.Peek() == "(" ){
 							break ; 
 						} ;

@@ -24,9 +24,9 @@ namespace Calculator
 				string expStr = Console.ReadLine();
 	
 				
-				/*ParserClass PC = new ParserClass(expStr) ;
-				List<string> revPolNot = PC.TransformString(expStr) ;
-				CalculationClass CalcCl = new CalculationClass () ;
+				ParserClass PC = new ParserClass(expStr , new RegularLineClass()) ;
+				List<string> revPolNot = PC.GetRevPolNote() ;
+				/*CalculationClass CalcCl = new CalculationClass () ;
 				string result = CalcCl.Caculate(revPolNot) ;
 				Console.WriteLine("Результат: " + result) ;*/
 				key = Console.ReadKey(true);

@@ -18,7 +18,7 @@ namespace Calculator
 	/// <summary>
 	///Класс упорядочения входной строки
 	/// </summary>
-	public class RegularLineClass : RegLineAbsr
+	public class RegularLineClass : RegLineAbstr
 	{
 		
 		string subjectString ;
