@@ -18,7 +18,7 @@ namespace Calculator
 	/// <summary>
 	///Класс упорядочения входной строки
 	/// </summary>
-	public class RegularLineClass
+	public class RegularLineClass : RegLineAbsr
 	{
 		
 		string subjectString ;
@@ -26,10 +26,6 @@ namespace Calculator
 		string avalabeleSymb = "0123456789+-*/^()," ;
 		StringBuilder SB ;
 		
-		public RegularLineClass(string subjectString)
-		{
-			this.subjectString = subjectString ;		
-		}
 		
 		void Regularize() {
 			
@@ -43,6 +39,8 @@ namespace Calculator
 			}
 			
 			subjectString = SB.ToString() ;
+			
+
 			
 			// работа с отрицательными числами во входном выражении. Замена вида: -2  -> (0-2) или (-2 -> ((0-2)...
 			Regex regExp = new Regex (@"^-\d+,?\d*|\(-\d+,?\d*") ;
@@ -58,7 +56,8 @@ namespace Calculator
 
 		}
 		
-		public string GetRegString() {
+		override public string GetRegString(string s) {
+			subjectString = s ;
 			Regularize() ;
 			return subjectString;
 		}

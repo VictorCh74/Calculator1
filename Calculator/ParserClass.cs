@@ -20,20 +20,22 @@ namespace Calculator
 
 		Regex regExNum = new Regex(@"\d+\,?\d*") ;
 		OperationsKit operKit = new OperationsKit () ;
+		RegLineAbstr regLIneEntity ;
 		
-		public ParserClass(string expression)
+		public ParserClass(string expression , RegLineAbstr regLIneEntity )
 		{
-			RegularLineClass regLine = new RegularLineClass(expression) ;
-			this.expression =  regLine.GetRegString() ;
+			this.regLIneEntity = regLIneEntity ;
+		
+			this.expression =  regLIneEntity.GetRegString(expression) ;
 		}
 		
 		// формирование обратной польской записи в формате списка строк
-		public List <string> TransformString(string expr) {
+		public List <string> GetRevPolNote(string expr) {
 			List<string > resLine =  new List<string> () ;
 			Stack<string> operations = new Stack<string> () ;
 	
 			//сформировать входную последовательность
-			string[] inputSequence = ForminputSequence(expr) ;
+			string[] inputSequence = FormInputSequence(expr) ;
 
 			foreach( string s in inputSequence ) {
 				//если s - число			
@@ -94,7 +96,7 @@ namespace Calculator
 		}
 	
 		
-		string[] ForminputSequence(string inpitStr ) {
+		string[] FormInputSequence(string inpitStr ) {
 			string buffStr = "" ;
 			// "s" -- разделитель лексем.
 			buffStr = inpitStr.Replace(operKit.GetSignatureList()[0] , "s"+operKit.GetSignatureList()[0]+"s") ;
