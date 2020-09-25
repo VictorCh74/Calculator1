@@ -24,7 +24,7 @@ namespace Calculator
 				string expStr = Console.ReadLine();
 	
 				
-				ParserClass PC = new ParserClass(expStr , new RegularLineClass()) ;
+				ReversePolNoteClass PC = new ReversePolNoteClass(expStr , new RegularLineClass()) ;
 				List<string> revPolNot = PC.GetRevPolNote() ;
 				/*CalculationClass CalcCl = new CalculationClass () ;
 				string result = CalcCl.Caculate(revPolNot) ;

@@ -27,7 +27,6 @@ namespace Calculator
 			opList.Add(new Div2()) ;
 			opList.Add(new Pow2()) ;
 			opList.Add(new BracketLeft()) ;
-			//opList.Add(new BracketRight()) ;
 		}
 		
 		public int GetPriorytiOf(string s) {

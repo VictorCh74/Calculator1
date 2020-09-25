@@ -14,13 +14,13 @@ using System.Collections.Generic ;
 namespace Tests
 {
 	[TestFixture]
-	public class ParserClassTest
+	public class ReversePolNoteClassTest
 	{
 		[Test]
 		public void GetRevPolNoteTestMethod()
 		{
-			ParserClass PC = new ParserClass( "2*(3+4)+10" , new RegularLineClass()) ;
-			System.Collections.Generic.List<string> result = PC.GetRevPolNote() ;
+			ReversePolNoteClass reverseNote = new ReversePolNoteClass( "2*(3+4)+10" , new RegularLineClass()) ;
+			System.Collections.Generic.List<string> result = reverseNote.GetRevPolNote() ;
 			System.Collections.Generic.List<string> pat = new System.Collections.Generic.List<string>();
 			pat.AddRange(new string[] { "2" , "3" , "4" ,  "+" , "*" , "10" , "+"} ) ;
 	

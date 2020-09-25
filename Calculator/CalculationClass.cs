@@ -14,7 +14,7 @@ using System.Text.RegularExpressions ;
 namespace Calculator
 {
 	/// <summary>
-	/// Description of CalculationClass.
+	/// Класс вычисления. Входной параметр метода Calculate -- обратная польская запись в виде списка строк-лесем.
 	/// </summary>
 	public class CalculationClass
 	{	
@@ -22,18 +22,24 @@ namespace Calculator
 		Regex regExNum = new Regex(@"\d+\,?\d*") ; // шаблон для числа
 		Stack<string> calcStack = new Stack<string>();
 		OperationsKit operKit = new OperationsKit() ;
-
+		IReverse reverseNote ;
+		List<string> OPN ;
 		
-		public string Caculate(List<string> OPL) {
-			foreach(string item in OPL) {
+		public CalculationClass (IReverse revNote) {
+			reverseNote = revNote ;
+			OPN =  revNote.GetRevPolNote() ;
+		}
+		
+		
+		public string Caculate() {
+			foreach(string item in OPN) {
 				if(regExNum.Match(item).Success)
 					calcStack.Push(item) ;
 				
 				else{
-					Operation_ oper = operKit.GetOper(item) ;
-					double a = Convert.ToDouble (calcStack.Pop()) ;
-					double b = Convert.ToDouble (calcStack.Pop()) ;					
-					double res = oper.execute( b , a) ;
+					double arg2 = Convert.ToDouble (calcStack.Pop()) ;
+					double arg1 = Convert.ToDouble (calcStack.Pop()) ;					
+					double res = operKit.GetOper(item).execute( arg1 , arg2) ;
 					
 					calcStack.Push(res.ToString()) ;
 					
