@@ -24,11 +24,10 @@ namespace Calculator
 				string expStr = Console.ReadLine();
 	
 				
-				ReversePolNoteClass PC = new ReversePolNoteClass(expStr , new RegularLineClass()) ;
-				List<string> revPolNot = PC.GetRevPolNote() ;
-				/*CalculationClass CalcCl = new CalculationClass () ;
-				string result = CalcCl.Caculate(revPolNot) ;
-				Console.WriteLine("Результат: " + result) ;*/
+				ReversePolNoteClass RPNC = new ReversePolNoteClass(expStr , new RegularLineClass()) ;
+				CalculationClass CalcCl = new CalculationClass (RPNC) ;
+				string result = CalcCl.Caculate() ;
+				Console.WriteLine("Результат: " + result) ;
 				key = Console.ReadKey(true);
 			} while( key.KeyChar != 27) ;
 		}
