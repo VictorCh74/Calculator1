@@ -21,13 +21,15 @@ namespace Calculator
 		
 		Regex regExNum = new Regex(@"\d+\,?\d*") ; // шаблон для числа
 		Stack<string> calcStack = new Stack<string>();
-		OperationsKit operKit = new OperationsKit() ;
+		
 		IReverse reverseNote ;
 		List<string> OPN ;
+		IKit Kit ;
 		
-		public CalculationClass (IReverse revNote) {
+		public CalculationClass (IReverse revNote , IKit Kit) {
 			reverseNote = revNote ;
 			OPN =  revNote.GetRevPolNote() ;
+			this.Kit = Kit ;
 		}
 		
 		
@@ -39,7 +41,7 @@ namespace Calculator
 				else{
 					double arg2 = Convert.ToDouble (calcStack.Pop()) ;
 					double arg1 = Convert.ToDouble (calcStack.Pop()) ;					
-					double res = operKit.GetOper(item).execute( arg1 , arg2) ;
+					double res = Kit.GetOper(item).execute( arg1 , arg2) ;
 					
 					calcStack.Push(res.ToString()) ;
 					

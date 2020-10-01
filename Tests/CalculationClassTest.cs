@@ -8,6 +8,10 @@
  */
 using System;
 using NUnit.Framework;
+using Calculator ;
+
+//"2" , "3" , "4" ,  "+" , "*" , "10" , "+"} ) ;
+	
 
 namespace Tests
 {
@@ -17,7 +21,12 @@ namespace Tests
 		[Test]
 		public void TestMethod()
 		{
-			// TODO: Add your test.
+			
+			ReversePolNoteClass revNote = new ReversePolNoteClass( "-2*(6+4)+10,5" , new RegularLineClass()) ;
+			CalculationClass CC = new CalculationClass( revNote  , new OperationsKit()) ;
+			
+			string result = CC.Caculate() ;
+			Assert.AreEqual("-9,5" , result ) ;
 		}
 	}
 }

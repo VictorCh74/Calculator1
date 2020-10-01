@@ -14,7 +14,7 @@ namespace Calculator
 	/// <summary>
 	/// OperationsKit -- набор методов и аттрибутов арифметических операций.
 	/// </summary>
-	public class OperationsKit
+	public class OperationsKit : IKit
 	{
 		List<Operation_> opList = new List<Operation_> () ;
 		

@@ -7,3 +7,12 @@ E:\витя\Calculator\Tests\bin\Debug\NUnit.Framework.dll
 E:\витя\Calculator\Tests\bin\Debug\Calculator.pdb
 E:\витя\Calculator\Tests\obj\Debug\Tests.dll
 E:\витя\Calculator\Tests\obj\Debug\Tests.pdb
+G:\Calculator\Tests\obj\Debug\Tests.csprojResolveAssemblyReference.cache
+G:\Calculator\Tests\obj\Debug\Tests.dll
+G:\Calculator\Tests\bin\Debug\Tests.dll.config
+G:\Calculator\Tests\bin\Debug\Tests.dll
+G:\Calculator\Tests\bin\Debug\Tests.pdb
+G:\Calculator\Tests\bin\Debug\Calculator.exe
+G:\Calculator\Tests\bin\Debug\NUnit.Framework.dll
+G:\Calculator\Tests\bin\Debug\Calculator.pdb
+G:\Calculator\Tests\obj\Debug\Tests.pdb

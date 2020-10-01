@@ -24,22 +24,18 @@ namespace Calculator
 		string subjectString ;
 	
 		string avalabeleSymb = "0123456789+-*/^()," ;
-		StringBuilder SB ;
 		
 		
 		void Regularize() {
 			
 	
-			SB = new StringBuilder(subjectString) ;
-			SB = SB.Replace('.' , ',');
+			subjectString = subjectString.Replace('.' , ',');
+			//удаление всех несоответствующих символов
 			foreach (char c in subjectString) {
 				if (avalabeleSymb.IndexOf(c) == -1) {
-					SB = SB.Replace( c.ToString() , "") ;
+					subjectString = subjectString.Replace( c.ToString() , "") ;
 				}
 			}
-			
-			subjectString = SB.ToString() ;
-			
 
 			
 			// работа с отрицательными числами во входном выражении. Замена вида: -2  -> (0-2) или (-2 -> ((0-2)...

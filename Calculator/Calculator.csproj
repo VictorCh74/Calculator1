@@ -49,14 +49,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CalculationClass.cs" />
+    <Compile Include="IKit.cs" />
     <Compile Include="IReverse.cs" />
     <Compile Include="Operation.cs" />
     <Compile Include="OperationsKit.cs" />
-    <Compile Include="ReversePolNoteClass" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RegLineAbstr.cs" />
     <Compile Include="RegularLineClass.cs" />
+    <Compile Include="ReversePolNoteClass.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
