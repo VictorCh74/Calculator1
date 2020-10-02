@@ -19,13 +19,14 @@ namespace Calculator
 		string expression ;
 
 		Regex regExNum = new Regex(@"\d+\,?\d*") ;
-		OperationsKit operKit = new OperationsKit () ;
+		IKit operKit ;
 		RegLineAbstr regLIneEntity ;
 		
-		public ReversePolNoteClass(string expression , RegLineAbstr regLIneEntity )
+		public ReversePolNoteClass(string expression , RegLineAbstr regLIneEntity , IKit operKit )
 		{
 			this.regLIneEntity = regLIneEntity ;	
 			this.expression =  regLIneEntity.GetRegString(expression) ;
+			this.operKit = operKit ;
 		}
 		
 		// формирование обратной польской записи в формате списка строк

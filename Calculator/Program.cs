@@ -24,7 +24,7 @@ namespace Calculator
 				string expStr = Console.ReadLine();
 	
 				
-				ReversePolNoteClass RPNC = new ReversePolNoteClass(expStr , new RegularLineClass()) ;
+				ReversePolNoteClass RPNC = new ReversePolNoteClass(expStr , new RegularLineClass() , new OperationsKit()) ;
 				CalculationClass CalcCl = new CalculationClass (RPNC , new OperationsKit()) ;
 				string result = CalcCl.Caculate() ;
 				

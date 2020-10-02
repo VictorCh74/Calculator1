@@ -19,7 +19,7 @@ namespace Tests
 		[Test]
 		public void GetRevPolNoteTestMethod()
 		{
-			ReversePolNoteClass reverseNote = new ReversePolNoteClass( "2*(3+4)+10" , new RegularLineClass()) ;
+			ReversePolNoteClass reverseNote = new ReversePolNoteClass( "2*(3+4)+10" , new RegularLineClass() , new OperationsKit()) ;
 			System.Collections.Generic.List<string> result = reverseNote.GetRevPolNote() ;
 			System.Collections.Generic.List<string> pat = new System.Collections.Generic.List<string>();
 			pat.AddRange(new string[] { "2" , "3" , "4" ,  "+" , "*" , "10" , "+"} ) ;

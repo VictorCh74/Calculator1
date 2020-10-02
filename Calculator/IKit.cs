@@ -19,6 +19,7 @@ namespace Calculator
 	{
 		int GetPriorytiOf(string s) ;
 		Operation_ GetOper (string item) ;
+		List<string> GetSignatureList () ;
 		
 	}
 }
