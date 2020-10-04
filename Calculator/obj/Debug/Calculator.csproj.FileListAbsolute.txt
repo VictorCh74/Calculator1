@@ -10,3 +10,9 @@ G:\Calculator\Calculator\bin\Debug\Calculator.exe.config
 G:\Calculator\Calculator\bin\Debug\Calculator.exe
 G:\Calculator\Calculator\bin\Debug\Calculator.pdb
 G:\Calculator\Calculator\obj\Debug\Calculator.pdb
+D:\Calculator\Calculator\obj\Debug\Calculator.csprojResolveAssemblyReference.cache
+D:\Calculator\Calculator\obj\Debug\Calculator.exe
+D:\Calculator\Calculator\obj\Debug\Calculator.pdb
+D:\Calculator\Calculator\bin\Debug\Calculator.exe.config
+D:\Calculator\Calculator\bin\Debug\Calculator.exe
+D:\Calculator\Calculator\bin\Debug\Calculator.pdb

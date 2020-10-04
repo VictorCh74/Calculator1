@@ -25,11 +25,12 @@ namespace Calculator
 	
 				
 				ReversePolNoteClass RPNC = new ReversePolNoteClass(expStr , new RegularLineClass() , new OperationsKit()) ;
-				CalculationClass CalcCl = new CalculationClass (RPNC , new OperationsKit()) ;
-				string result = CalcCl.Caculate() ;
+				string result = new CalculationClass (RPNC , new OperationsKit()).Caculate() ;
+				
 				
 				Console.WriteLine("Результат: " + result) ;
 				key = Console.ReadKey(true);
+				
 			} while( key.KeyChar != 27) ;
 		}
 	}

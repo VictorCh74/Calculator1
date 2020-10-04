@@ -13,7 +13,7 @@ namespace Calculator
 	/// <summary>
 	/// Абстракция для сущности упорядоченной строки
 	/// </summary>
-	abstract public class RegLineAbstr
+	abstract public class AbstractRegLine
 	{
 		
 		abstract public string GetRegString(string s) ;

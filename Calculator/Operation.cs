@@ -14,83 +14,93 @@ namespace Calculator
     /// <summary>
     /// Description of Operation.
     /// </summary>
-    public abstract class Operation_
-    {
-    	public string signature ;
-    	public int priority;
-    	abstract public double execute(double a , double b) ;
-    	
+    
+    
+    public interface IExecute {
+    	string signature {get ; set ;}
+    	double Execute(double a , double b) ;
     }
-       public class Sum2 : Operation_ {
+    
+    public interface IOperation
+    {
+    	string signature {get ; set ;}
+    	int priority {get ; set ;}
+    		
+    }
+   	
+    public class Sum2 : IOperation , IExecute {
+    	public string signature {get ; set ;}
+    	public int priority {get ; set ;}
+    	
     	public Sum2() {
-    		signature = "+";
-    		priority = 2 ;
+    		this.signature = "+";
+    		this.priority = 2 ;
     	}
-        override public double execute ( double a , double b ) {
+        public double Execute ( double a , double b ) {
             return a + b ;
         }
     }
     
-    public class Subst2  : Operation_ {
+    public class Subst2  : IOperation , IExecute {
+    	public string signature {get ; set ;}
+    	public int priority {get ; set ;}
+    	
     	public Subst2() {
     		signature = "-";
     		priority = 2 ;
     	}
-        override public double execute ( double a , double b ) {
+        public double Execute ( double a , double b ) {
             return a - b ;
         }
     }
     
-    public class Mult2  : Operation_ {
+    public class Mult2  : IOperation , IExecute {
+    	public string signature {get ; set ;}
+    	public int priority {get ; set ;}
+    	
     	public Mult2() {
     		signature = "*" ;
         	 priority = 3 ;
     	}
-        override public double execute ( double a , double b ) {
+        public double Execute ( double a , double b ) {
             return a * b ;
         }
     }
     
-    public class Div2  : Operation_ {
+    public class Div2  : IOperation , IExecute {
+    	public string signature {get ; set ;}
+    	public int priority {get ; set ;}
+    	
     	public Div2(){
     		signature = "/" ;
         	priority = 3 ;
     	}
-        override public double execute ( double a , double b ) {
+        public double Execute ( double a , double b ) {
             return a / b ;
         }
     }
     
-    public class Pow2  : Operation_ {
+    public class Pow2  : IOperation , IExecute {
+    	public string signature {get ; set ;}
+    	public int priority {get ; set ;}
+    	
     	public Pow2(){
     		signature = "^" ;
         	priority = 4 ;
     	}
-        override public double execute ( double a , double b ) {
+        public double Execute ( double a , double b ) {
         	return Math.Pow ( a , b ) ;
         }
     }
     
     
-	public class BracketLeft  : Operation_ {
+	public class BracketLeft  : IOperation {
+    	public string signature {get ; set ;}
+    	public int priority {get ; set ;}
+    	
     	public BracketLeft(){
     		signature = "(" ;
         	priority = 1 ;
     	}
-        override public double execute ( double a , double b = 0.0  ) {
-    		return  a;
-        }
-    }
-    
-    
-    public class BracketRight  : Operation_ {
-    	public BracketRight(){
-    		signature = ")" ;
-        	priority = 0 ;
-    	}
-        override public double execute ( double a , double b = 0.0  ) {
-    		return  a;
-        }
-    }
-     
+    }  
 }

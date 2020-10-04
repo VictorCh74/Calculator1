@@ -16,29 +16,36 @@ namespace Calculator
 	/// </summary>
 	public class OperationsKit : IKit
 	{
-		List<Operation_> opList = new List<Operation_> () ;
-		
+		List<IOperation> prirityAndSignList = new List<IOperation> () ;
+		List<IExecute> executeAndSignList = new List<IExecute> () ;
 		
 		public OperationsKit()
 		{
-			opList.Add(new Sum2()) ;
-			opList.Add(new Subst2()) ;
-			opList.Add(new Mult2()) ;
-			opList.Add(new Div2()) ;
-			opList.Add(new Pow2()) ;
-			opList.Add(new BracketLeft()) ;
+			prirityAndSignList.Add(new Sum2()) ;
+			prirityAndSignList.Add(new Subst2()) ;
+			prirityAndSignList.Add(new Mult2()) ;
+			prirityAndSignList.Add(new Div2()) ;
+			prirityAndSignList.Add(new Pow2()) ;
+			prirityAndSignList.Add(new BracketLeft()) ;
+
+			
+			executeAndSignList.Add(new Sum2()) ;
+			executeAndSignList.Add(new Subst2()) ;
+			executeAndSignList.Add(new Mult2()) ;
+			executeAndSignList.Add(new Div2()) ;
+			executeAndSignList.Add(new Pow2()) ;
 		}
 		
 		public int GetPriorytiOf(string s) {
-			var selection = from op in opList
+			var selection = from op in prirityAndSignList
 					where op.signature == s
 					select op ;
 			
 			return  selection.ToList().First().priority;
 		}
 		
-		public 	Operation_ GetOper (string item) {
-				var oper =	from Operation_ op in opList
+		public 	IExecute GetOper (string item) {
+				var oper =	from IExecute op in executeAndSignList
 					where op.signature == item
 					select op;
 					
@@ -47,7 +54,7 @@ namespace Calculator
 		}
 		
 		public List<string> GetSignatureList () {
-				var _signature = from op in opList
+				var _signature = from op in prirityAndSignList
 								select op.signature ;
 				return _signature.ToList() ;
 		}

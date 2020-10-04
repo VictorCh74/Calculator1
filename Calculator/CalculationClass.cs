@@ -41,7 +41,7 @@ namespace Calculator
 				else{
 					double arg2 = Convert.ToDouble (calcStack.Pop()) ;
 					double arg1 = Convert.ToDouble (calcStack.Pop()) ;					
-					double res = Kit.GetOper(item).execute( arg1 , arg2) ;
+					double res = Kit.GetOper(item).Execute( arg1 , arg2) ;
 					
 					calcStack.Push(res.ToString()) ;
 					

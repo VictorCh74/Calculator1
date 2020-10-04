@@ -16,3 +16,12 @@ G:\Calculator\Tests\bin\Debug\Calculator.exe
 G:\Calculator\Tests\bin\Debug\NUnit.Framework.dll
 G:\Calculator\Tests\bin\Debug\Calculator.pdb
 G:\Calculator\Tests\obj\Debug\Tests.pdb
+D:\Calculator\Tests\bin\Debug\Tests.dll.config
+D:\Calculator\Tests\bin\Debug\Tests.dll
+D:\Calculator\Tests\bin\Debug\Tests.pdb
+D:\Calculator\Tests\bin\Debug\Calculator.exe
+D:\Calculator\Tests\bin\Debug\NUnit.Framework.dll
+D:\Calculator\Tests\bin\Debug\Calculator.pdb
+D:\Calculator\Tests\obj\Debug\Tests.csprojResolveAssemblyReference.cache
+D:\Calculator\Tests\obj\Debug\Tests.dll
+D:\Calculator\Tests\obj\Debug\Tests.pdb

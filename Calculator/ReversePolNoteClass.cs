@@ -20,9 +20,9 @@ namespace Calculator
 
 		Regex regExNum = new Regex(@"\d+\,?\d*") ;
 		IKit operKit ;
-		RegLineAbstr regLIneEntity ;
+		AbstractRegLine regLIneEntity ;
 		
-		public ReversePolNoteClass(string expression , RegLineAbstr regLIneEntity , IKit operKit )
+		public ReversePolNoteClass(string expression , AbstractRegLine regLIneEntity , IKit operKit )
 		{
 			this.regLIneEntity = regLIneEntity ;	
 			this.expression =  regLIneEntity.GetRegString(expression) ;
