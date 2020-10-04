@@ -21,24 +21,24 @@ namespace Calculator
 	public class RegularLineClass : AbstractRegLine
 	{
 		
-		string subjectString ;
-	
-		string avalabeleSymb = "0123456789+-*/^()," ;
+		string subjectString ;	
+		string avalabeleSymb = "0123456789+-*/^()," ;//набор арифметических допустимых символов
 		
 		
-		void Regularize() {
+		void RplacePoints() {
 			
 	
 			subjectString = subjectString.Replace('.' , ',');
-			//удаление всех несоответствующих символов
+			//удаление всех других неарифметических символов
 			foreach (char c in subjectString) {
 				if (avalabeleSymb.IndexOf(c) == -1) {
 					subjectString = subjectString.Replace( c.ToString() , "") ;
 				}
 			}
+		)
 
-			
-			// работа с отрицательными числами во входном выражении. Замена вида: -2  -> (0-2) или (-2 -> ((0-2)...
+		void NegativeNumberToDiffer () {
+			// работа с отрицательными числами во входном выражении. Замена вида: -2  -> (0-2) или (-2... -> ((0-2)...
 			Regex regExp = new Regex (@"^-\d+,?\d*|\(-\d+,?\d*") ;
 			MatchCollection mColl = regExp.Matches(subjectString ) ;
 			
@@ -54,7 +54,8 @@ namespace Calculator
 		
 		override public string GetRegString(string s) {
 			subjectString = s ;
-			Regularize() ;
+			 RplacePoints() ;
+			 NegativeNumberToDiffer () ;
 			return subjectString;
 		}
 		
