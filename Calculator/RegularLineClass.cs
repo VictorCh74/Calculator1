@@ -35,7 +35,7 @@ namespace Calculator
 					subjectString = subjectString.Replace( c.ToString() , "") ;
 				}
 			}
-		)
+		}
 
 		void NegativeNumberToDiffer () {
 			// работа с отрицательными числами во входном выражении. Замена вида: -2  -> (0-2) или (-2... -> ((0-2)...
