@@ -21,7 +21,7 @@ namespace Calculator
 		Regex regExNum = new Regex(@"\d+\,?\d*") ;
 		IKit operKit ;
 		AbstractRegLine regLIneEntity ;
-		List<string > resLine =  new List<string> () ;
+		
 		
 		public ReversePolNoteClass(string expression , AbstractRegLine regLIneEntity , IKit operKit )
 		{
@@ -32,7 +32,7 @@ namespace Calculator
 		
 		// формирование обратной польской записи в формате списка строк
 		public List <string> GetRevPolNote() {
-			
+			List<string > resLine =  new List<string> () ;
 			Stack<string> operations = new Stack<string> () ;
 	
 			//сформировать входную последовательность
@@ -47,15 +47,15 @@ namespace Calculator
 						
 				//если s - символ арифмет. операции			
 				if( operKit.GetSignatureList().Contains(s) && s != "(") 
-					ArithmeticOperationHandle (operations , s ) ;
+					ArithmeticOperationHandle (operations , s , ref resLine ) ;
 					
 				if( s == "(" ) 
 					 operations.Push(s) ;
 				
 				if( s == ")" ) 	
-					OperationsToResline (operations) ;			
+					OperationsToResline (operations , ref resLine) ;			
 			}
-			//если стэк непустой то запистаь все в ResLine			 
+			//если стэк непустой то переписать все в ResLine			 
 			while (operations.Count > 0) {
 					resLine.Add(operations.Pop()) ;
 			} 
@@ -79,7 +79,7 @@ namespace Calculator
 			return buffStr.Split('s') ;
 		}
 		
-		void ArithmeticOperationHandle (Stack<string> operations , string s ) {
+		void ArithmeticOperationHandle (Stack<string> operations , string s , ref List<string > resLine ) {
 			//внести символ в стэк опреаций
 			if (operations.Count == 0 || operKit.GetPriorytiOf(s) > operKit.GetPriorytiOf(operations.Peek())) {
 				operations.Push(s);
@@ -96,7 +96,7 @@ namespace Calculator
 			}			
 		}
 		
-		void OperationsToResline (Stack<string> operations) {
+		void OperationsToResline (Stack<string> operations ,  ref List<string > resLine) {
 			while (operations.Count > 0) {
 				if (operations.Peek() == "(") {
 					break; 
