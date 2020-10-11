@@ -16,91 +16,133 @@ namespace Calculator
     /// </summary>
     
     
-    public interface IExecute {
+   /* public interface IExecute {
     	string signature {get ; set ;}
     	double Execute(double a , double b) ;
-    }
+    }*/
     
     public interface IOperation
     {
-    	string signature {get ; set ;}
-    	int priority {get ; set ;}
-    		
+    	int GetArgAmmount() ;
+    	string GetSignature () ;
+    	int GetPriority() ;
+    	double Execute(double[] a ) ;
+    	
     }
    	
-    public class Sum2 : IOperation , IExecute {
-    	public string signature {get ; set ;}
-    	public int priority {get ; set ;}
-    	
-    	public Sum2() {
-    		this.signature = "+";
-    		this.priority = 2 ;
-    	}
-        public double Execute ( double a , double b ) {
-            return a + b ;
+    public class Sum2 : IOperation   {
+   
+    	int GetArgAmmount() {return 2;}
+  
+   		public string GetSignature () { return "+" ;}
+   		public int GetPriority() {return 2 ;}
+   		
+   		public double Execute ( double[] a ) {
+   			if(a.Length != GetArgAmmount() )
+   				throw new Exception("Неверное число операндов !!") ;
+   			return a[0] + a[0] ;
         }
     }
     
-    public class Subst2  : IOperation , IExecute {
-    	public string signature {get ; set ;}
-    	public int priority {get ; set ;}
+    public class Subst2  : IOperation   {
     	
-    	public Subst2() {
-    		signature = "-";
-    		priority = 2 ;
-    	}
-        public double Execute ( double a , double b ) {
-            return a - b ;
+    	int GetArgAmmount() {return  2} ;
+  		
+    	public string GetSignature () { return "-" ;}
+    	public int GetPriority() {return 2 ;}
+    	
+    	
+        public double Execute ( double[] a ) {
+    		if(a.Length != GetArgAmmount() )
+   				throw new Exception("Неверное число операндов !!") ;
+    		return a[0] - a[1] ;
         }
     }
     
-    public class Mult2  : IOperation , IExecute {
-    	public string signature {get ; set ;}
-    	public int priority {get ; set ;}
+    public class Mult2  : IOperation   {
+
+    	int GetArgAmmount()  {return 2 ;}
     	
-    	public Mult2() {
-    		signature = "*" ;
-        	 priority = 3 ;
-    	}
-        public double Execute ( double a , double b ) {
-            return a * b ;
+    	public string GetSignature () { return "*" ;}
+    	public int GetPriority() {return 2 ;}    	
+    	
+        public double Execute ( double[] a) {
+            if(a.Length != GetArgAmmount() )
+   				throw new Exception("Неверное число операндов !!") ;
+            return a[0] * a[1] ;
         }
     }
     
-    public class Div2  : IOperation , IExecute {
-    	public string signature {get ; set ;}
-    	public int priority {get ; set ;}
+    public class Div2  : IOperation   {
+ 
+    	int GetArgAmmount()  {return 2 ;}
+ 
+    	public string GetSignature () { return "/" ;}
+    	public int GetPriority() {return 2 ;}    	    	
     	
-    	public Div2(){
-    		signature = "/" ;
-        	priority = 3 ;
-    	}
-        public double Execute ( double a , double b ) {
-            return a / b ;
+        public double Execute (  double[] a ) {
+            if(a.Length != GetArgAmmount() )
+   				throw new Exception("Неверное число операндов !!") ;
+            return a[0] / a[1] ;
         }
     }
     
-    public class Pow2  : IOperation , IExecute {
-    	public string signature {get ; set ;}
-    	public int priority {get ; set ;}
+    public class Pow2  : IOperation   {
+ 
+    	int GetArgAmmount() {return  2 ;}
     	
-    	public Pow2(){
-    		signature = "^" ;
-        	priority = 4 ;
-    	}
-        public double Execute ( double a , double b ) {
-        	return Math.Pow ( a , b ) ;
+    	public string GetSignature () { return "^" ;}
+    	public int GetPriority() {return 4 ;}
+ 
+        public double Execute ( double[] a ) {
+            if(a.Length != GetArgAmmount() )
+   				throw new Exception("Неверное число операндов !!") ;
+            return Math.Pow ( a[0] , a[1] ) ;
+        }
+    }
+    
+    public class Sin : IOperation   {
+ 
+    	int GetArgAmmount() {return  1 ;}
+
+    	public string GetSignature () { return "sin" ;}
+    	public int GetPriority() {return 4 ;}    	
+ 
+        public double Execute ( double[] a ) {
+            if(a.Length != GetArgAmmount() )
+   				throw new Exception("Неверное число операндов !!") ;
+            return Math.Sin( a[0] ) ;
+        }
+    }
+    
+    //унарный минус
+    public class Um : IOperation   {
+ 
+    	int GetArgAmmount() {return  1 ;}
+
+    	public string GetSignature () { return "um" ;}
+    	public int GetPriority() {return 1 ;}    	
+ 
+        public double Execute ( double[] a ) {
+            if(a.Length != GetArgAmmount() )
+   				throw new Exception("Неверное число операндов !!") ;
+            return  -a[0]  ;
         }
     }
     
     
 	public class BracketLeft  : IOperation {
-    	public string signature {get ; set ;}
-    	public int priority {get ; set ;}
+
+    	int GetArgAmmount() { return  1 ;}
     	
-    	public BracketLeft(){
-    		signature = "(" ;
-        	priority = 1 ;
+    	public string GetSignature () { return "(" ;}
+    	public int GetPriority() {return 1 ;}   
+
+    	
+    	 public double Execute ( double[] a ) {
+    		if(a != null )
+   				throw new Exception("Невернный операнд !!") ;
+            return 0 ;
     	}
     }  
 }

@@ -18,7 +18,7 @@ namespace Calculator
 	public interface IKit
 	{
 		int GetPriorytiOf(string s) ;
-		IExecute GetOper (string item) ;
+		IOperation GetOper (string item) ;
 		List<string> GetSignatureList () ;
 		
 	}

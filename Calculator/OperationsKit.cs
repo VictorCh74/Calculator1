@@ -16,47 +16,54 @@ namespace Calculator
 	/// </summary>
 	public class OperationsKit : IKit
 	{
-		List<IOperation> prirityAndSignList = new List<IOperation> () ;
-		List<IExecute> executeAndSignList = new List<IExecute> () ;
+		List<IOperation> operationList = new List<IOperation> () ;
+		
 		
 		public OperationsKit()
 		{
-			prirityAndSignList.Add(new Sum2()) ;
-			prirityAndSignList.Add(new Subst2()) ;
-			prirityAndSignList.Add(new Mult2()) ;
-			prirityAndSignList.Add(new Div2()) ;
-			prirityAndSignList.Add(new Pow2()) ;
-			prirityAndSignList.Add(new BracketLeft()) ;
+			operationList.Add(new Sum2()) ;
+			operationList.Add(new Subst2()) ;
+			operationList.Add(new Mult2()) ;
+			operationList.Add(new Div2()) ;
+			operationList.Add(new Pow2()) ;
+			operationList.Add(new BracketLeft()) ;
+			operationList.Add(new Um()) ;
+			operationList.Add(new Sin()) ;			
 
-			
-			executeAndSignList.Add(new Sum2()) ;
-			executeAndSignList.Add(new Subst2()) ;
-			executeAndSignList.Add(new Mult2()) ;
-			executeAndSignList.Add(new Div2()) ;
-			executeAndSignList.Add(new Pow2()) ;
 		}
 		
 		public int GetPriorytiOf(string s) {
-			var selection = from op in prirityAndSignList
-					where op.signature == s
+			var selection = from op in operationList
+					where op.GetSignature() == s
 					select op ;
 			
-			return  selection.ToList().First().priority;
+			return  selection.ToList().First().GetPriority();
 		}
 		
-		public 	IExecute GetOper (string item) {
-				var oper =	from IExecute op in executeAndSignList
-					where op.signature == item
+		public 	IOperation GetOper (string item) {
+				var oper =	from IOperation op in operationList
+					where op.GetSignature() == item
 					select op;
 					
-					return oper.ToList().First() ;
-					
+				return oper.ToList().First() ;	
 		}
 		
 		public List<string> GetSignatureList () {
-				var _signature = from op in prirityAndSignList
-								select op.signature ;
+				var _signature = from op in operationList
+								select op.GetSignature() ;
 				return _signature.ToList() ;
+		}
+		
+		public bool IsAvalable(string s) {
+			string avalable = " " ;
+			foreach (IOperation op in operationList) {
+				avalable = avalable + op.GetSignature() ;
+			}
+			
+			if (avalable.IndexOf(s) == -1) {
+				return false ;
+			}
+			return true ;
 		}
 		
 	}

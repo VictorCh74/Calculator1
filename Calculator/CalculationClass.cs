@@ -46,10 +46,8 @@ namespace Calculator
 					calcStack.Push(res.ToString()) ;
 					
 				}
-			}
-			
+			}		
 			return calcStack.Pop();
-		
 		}
 	}
 }
