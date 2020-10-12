@@ -66,17 +66,17 @@ namespace Calculator
 		string[] FormInputSequence(string inpitStr ) {
 			string buffStr = "" ;
 			// "s" -- разделитель лексем.
-			buffStr = inpitStr.Replace(operKit.GetSignatureList()[0] , "s"+operKit.GetSignatureList()[0]+"s") ;
+			buffStr = inpitStr.Replace(operKit.GetSignatureList()[0] , "#"+operKit.GetSignatureList()[0]+"#") ;
 			foreach(string sig in operKit.GetSignatureList()){
-				buffStr = buffStr.Replace(sig , "s"+sig+"s") ;
+				buffStr = buffStr.Replace(sig , "#"+sig+"#") ;
 			}
 			
-			buffStr = buffStr.Replace("(" , "(s" ) ;
-			buffStr = buffStr.Replace(")" , "s)" ) ;
-			buffStr = buffStr.Replace("ss" , "s") ;
-			buffStr = buffStr.Replace("ss" , "s") ;
+			buffStr = buffStr.Replace("(" , "(#" ) ;
+			buffStr = buffStr.Replace(")" , "#)" ) ;
+			buffStr = buffStr.Replace("##" , "#") ;
+			buffStr = buffStr.Replace("##" , "#") ;
 			
-			return buffStr.Split('s') ;
+			return buffStr.Split('#') ;
 		}
 		
 		void ArithmeticOperationHandle (Stack<string> operations , string s , ref List<string > resLine ) {

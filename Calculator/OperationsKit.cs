@@ -11,12 +11,10 @@ using System.Collections.Generic ;
 using System.Linq ;
 namespace Calculator
 {
-	/// <summary>
-	/// OperationsKit -- набор методов и аттрибутов арифметических операций.
-	/// </summary>
+
 	public class OperationsKit : IKit
 	{
-		List<IOperation> operationList = new List<IOperation> () ;
+		readonly List<IOperation> operationList = new List<IOperation> () ;
 		
 		
 		public OperationsKit()
@@ -55,7 +53,7 @@ namespace Calculator
 		}
 		
 		public bool IsAvalable(string s) {
-			string avalable = " " ;
+			string avalable = "0123456789()," ;
 			foreach (IOperation op in operationList) {
 				avalable = avalable + op.GetSignature() ;
 			}

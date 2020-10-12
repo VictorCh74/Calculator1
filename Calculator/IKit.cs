@@ -20,6 +20,6 @@ namespace Calculator
 		int GetPriorytiOf(string s) ;
 		IOperation GetOper (string item) ;
 		List<string> GetSignatureList () ;
-		
+		bool IsAvalable(string s) ;
 	}
 }

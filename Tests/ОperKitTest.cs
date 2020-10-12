@@ -33,7 +33,7 @@ namespace Tests
 		[Test]
 		public void TestGetOper() {
 
-			IExecute oper = operKit.GetOper("+") ;
+			IOperation oper = operKit.GetOper("+") ;
 			
 		}
 	}

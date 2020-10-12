@@ -16,14 +16,16 @@ namespace Tests
 	[TestFixture]
 	public class RegularLineClassTest
 	{
+		
+		
 		[Test]
-		public void TestRegularize()
-		{
-			var lineClass = new RegularLineClass () ;
+		public void TestGetRegString (){
+			var lineClass = new RegularLineClass ( new OperationsKit()) ;
 			
-			string result = lineClass.GetRegString("-1.2+2.4 -8p *(-5+7) ") ;
+			string result = lineClass.GetRegString("2+(-(4+5.0))") ;
 			
-			Assert.AreEqual( "(0-1,2)+2,4-8*((0-5)+7)" , result) ;
+			Assert.AreEqual( "2+(-(4+5,0))" , result) ;
+			
 		}
 	}
 }

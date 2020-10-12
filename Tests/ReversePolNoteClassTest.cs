@@ -19,13 +19,26 @@ namespace Tests
 		[Test]
 		public void GetRevPolNoteTestMethod()
 		{
-			ReversePolNoteClass reverseNote = new ReversePolNoteClass( "2*(3+4)+10" , new RegularLineClass() , new OperationsKit()) ;
+			ReversePolNoteClass reverseNote = new ReversePolNoteClass( "2+(-(4+5))" , new RegularLineClass(new OperationsKit()) , new OperationsKit()) ;
 			
 			List<string> result = reverseNote.GetRevPolNote() ;
 			List<string> pat = new System.Collections.Generic.List<string>();
-			pat.AddRange(new string[] { "2" , "3" , "4" ,  "+" , "*" , "10" , "+"} ) ;
+			pat.AddRange(new string[] { "2" ,  "4" , "5" , "+" , "-" , "+"} ) ;
 	
 			Assert.AreEqual( pat , result) ;
 		}
+		
+		[Test]
+		public void GetRevPolNoteTestMethodSin() {
+			ReversePolNoteClass reverseNote = new ReversePolNoteClass( "2+(-(4+5)+sin(30))" , new RegularLineClass(new OperationsKit()) , new OperationsKit()) ;
+			
+			List<string> result = reverseNote.GetRevPolNote() ;
+			List<string> pat = new System.Collections.Generic.List<string>();
+			pat.AddRange(new string[] { "2" , "4","5", "+" , "-" , "sin" ,  "30" , "+" , "+"} ) ;
+	
+			Assert.AreEqual( pat , result) ;
+		
+		}
+		
 	}
 }

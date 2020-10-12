@@ -32,7 +32,7 @@ namespace Calculator
    	
     public class Sum2 : IOperation   {
    
-    	int GetArgAmmount() {return 2;}
+    	public int GetArgAmmount() {return 2;}
   
    		public string GetSignature () { return "+" ;}
    		public int GetPriority() {return 2 ;}
@@ -46,7 +46,7 @@ namespace Calculator
     
     public class Subst2  : IOperation   {
     	
-    	int GetArgAmmount() {return  2} ;
+    	public int GetArgAmmount() {return  2 ;}
   		
     	public string GetSignature () { return "-" ;}
     	public int GetPriority() {return 2 ;}
@@ -61,7 +61,7 @@ namespace Calculator
     
     public class Mult2  : IOperation   {
 
-    	int GetArgAmmount()  {return 2 ;}
+    	public int GetArgAmmount()  {return 2 ;}
     	
     	public string GetSignature () { return "*" ;}
     	public int GetPriority() {return 2 ;}    	
@@ -75,7 +75,7 @@ namespace Calculator
     
     public class Div2  : IOperation   {
  
-    	int GetArgAmmount()  {return 2 ;}
+    	public int GetArgAmmount()  {return 2 ;}
  
     	public string GetSignature () { return "/" ;}
     	public int GetPriority() {return 2 ;}    	    	
@@ -89,7 +89,7 @@ namespace Calculator
     
     public class Pow2  : IOperation   {
  
-    	int GetArgAmmount() {return  2 ;}
+    	public int GetArgAmmount() {return  2 ;}
     	
     	public string GetSignature () { return "^" ;}
     	public int GetPriority() {return 4 ;}
@@ -103,7 +103,7 @@ namespace Calculator
     
     public class Sin : IOperation   {
  
-    	int GetArgAmmount() {return  1 ;}
+    	public int GetArgAmmount() {return  1 ;}
 
     	public string GetSignature () { return "sin" ;}
     	public int GetPriority() {return 4 ;}    	
@@ -118,7 +118,7 @@ namespace Calculator
     //унарный минус
     public class Um : IOperation   {
  
-    	int GetArgAmmount() {return  1 ;}
+    	public int GetArgAmmount() {return  1 ;}
 
     	public string GetSignature () { return "um" ;}
     	public int GetPriority() {return 1 ;}    	
@@ -133,7 +133,7 @@ namespace Calculator
     
 	public class BracketLeft  : IOperation {
 
-    	int GetArgAmmount() { return  1 ;}
+    	public int GetArgAmmount() { return  1 ;}
     	
     	public string GetSignature () { return "(" ;}
     	public int GetPriority() {return 1 ;}   

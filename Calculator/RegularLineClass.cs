@@ -20,43 +20,28 @@ namespace Calculator
 	/// </summary>
 	public class RegularLineClass : AbstractRegLine
 	{
-		
+		IKit OpKit ;
 		string subjectString ;	
-		string avalabeleSymb = "0123456789+-*/^()," ;//набор арифметических допустимых символов
 		
+		public RegularLineClass (IKit OpKit) {
+			this.OpKit = OpKit ;
+		}
 		
 		void RplacePoints() {
-			
-	
+		
 			subjectString = subjectString.Replace('.' , ',');
-			//удаление всех других неарифметических символов
+			//удаление всех других неарифметических символов (опечаток)
 			foreach (char c in subjectString) {
-				if (avalabeleSymb.IndexOf(c) == -1) {
+				if (!OpKit.IsAvalable(c.ToString())) {
 					subjectString = subjectString.Replace( c.ToString() , "") ;
 				}
 			}
-		}
-
-		void NegativeNumberToDiffer () {
-			// работа с отрицательными числами во входном выражении. Замена вида: -2  -> (0-2) или (-2... -> ((0-2)...
-			Regex regExp = new Regex (@"^-\d+,?\d*|\(-\d+,?\d*") ;
-			MatchCollection mColl = regExp.Matches(subjectString ) ;
-			
-			foreach (Match m in mColl) {
-				
-				if(m.Value[0] == '-' )
-					subjectString = subjectString.Replace(m.Value , "(0" + m.Value +")") ;
-				else	
-					subjectString = subjectString.Replace(m.Value , "((0" + m.Value.Substring(1)+")" );
-			}
-
 		}
 		
 		override public string GetRegString(string s) {
 			subjectString = s ;
 			 RplacePoints() ;
-			 NegativeNumberToDiffer () ;
-			return subjectString;
+			 return subjectString;
 		}
 		
 		
