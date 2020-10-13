@@ -23,31 +23,42 @@ namespace Calculator
 		Stack<string> calcStack = new Stack<string>();
 		
 		IReverse reverseNote ;
-		List<string> OPN ;
+		List<string> rpNote ;
 		IKit Kit ;
 		
 		public CalculationClass (IReverse revNote , IKit Kit) {
 			reverseNote = revNote ;
-			OPN =  revNote.GetRevPolNote() ;
+			rpNote =  revNote.GetRevPolNote() ;
 			this.Kit = Kit ;
 		}
 		
 		
 		public string Caculate() {
-			foreach(string item in OPN) {
+	
+			foreach(string item in rpNote) {
+				//если item - число
 				if(regExNum.Match(item).Success)
 					calcStack.Push(item) ;
 				
 				else{
-					double arg2 = Convert.ToDouble (calcStack.Pop()) ;
-					double arg1 = Convert.ToDouble (calcStack.Pop()) ;					
-					double res = Kit.GetOper(item).Execute( new double[] {arg1 , arg2 }) ;
 					
-					calcStack.Push(res.ToString()) ;
-					
+					List<double> args = new List<double>();
+					args = FillArgs( item ) ;
+					double res = Kit.GetOper(item).
+									 Execute( args ) ;
+					calcStack.Push(res.ToString()) ;				
 				}
 			}		
 			return calcStack.Pop();
+		}
+		
+		List<double> FillArgs (string operSign) {
+			
+			List<double> args = new List<double>();
+			for(int i = 0 ; i < Kit.GetOper(operSign).GetArgAmmount() && calcStack.Count > 0; i++) {
+				args.Add( Convert.ToDouble (calcStack.Pop())) ;
+			}
+			return args ;
 		}
 	}
 }

@@ -7,6 +7,7 @@
  * To change this template use Tools | Options | Coding | Edit Standard Headers.
  */
 using System;
+using System.Collections.Generic ;
 
 
 namespace Calculator
@@ -26,7 +27,8 @@ namespace Calculator
     	int GetArgAmmount() ;
     	string GetSignature () ;
     	int GetPriority() ;
-    	double Execute(double[] a ) ;
+    	double Execute(List<double> a ) ;
+    	bool Infix() ;
     	
     }
    	
@@ -37,11 +39,12 @@ namespace Calculator
    		public string GetSignature () { return "+" ;}
    		public int GetPriority() {return 2 ;}
    		
-   		public double Execute ( double[] a ) {
-   			if(a.Length != GetArgAmmount() )
+   		public double Execute ( List<double> a ) {
+   			if(a.Count != GetArgAmmount() )
    				throw new Exception("Неверное число операндов !!") ;
-   			return a[0] + a[0] ;
+   			return a[0] + a[1] ;
         }
+   		public bool Infix() { return true ;}
     }
     
     public class Subst2  : IOperation   {
@@ -52,11 +55,15 @@ namespace Calculator
     	public int GetPriority() {return 2 ;}
     	
     	
-        public double Execute ( double[] a ) {
-    		if(a.Length != GetArgAmmount() )
+        public double Execute ( List<double> a ) {
+    		if(a.Count == 1 ){
+    			return -a[0];
+    		}
+    		if(a.Count != GetArgAmmount() )
    				throw new Exception("Неверное число операндов !!") ;
-    		return a[0] - a[1] ;
+    		return a[1] - a[0] ;
         }
+    	public bool Infix() { return true ;}
     }
     
     public class Mult2  : IOperation   {
@@ -66,11 +73,12 @@ namespace Calculator
     	public string GetSignature () { return "*" ;}
     	public int GetPriority() {return 2 ;}    	
     	
-        public double Execute ( double[] a) {
-            if(a.Length != GetArgAmmount() )
+        public double Execute ( List<double> a) {
+            if(a.Count != GetArgAmmount() )
    				throw new Exception("Неверное число операндов !!") ;
             return a[0] * a[1] ;
         }
+    	public bool Infix() { return true ;}
     }
     
     public class Div2  : IOperation   {
@@ -80,11 +88,12 @@ namespace Calculator
     	public string GetSignature () { return "/" ;}
     	public int GetPriority() {return 2 ;}    	    	
     	
-        public double Execute (  double[] a ) {
-            if(a.Length != GetArgAmmount() )
+        public double Execute (  List<double> a ) {
+            if(a.Count != GetArgAmmount() )
    				throw new Exception("Неверное число операндов !!") ;
             return a[0] / a[1] ;
         }
+    	public bool Infix() { return true ;}
     }
     
     public class Pow2  : IOperation   {
@@ -94,11 +103,12 @@ namespace Calculator
     	public string GetSignature () { return "^" ;}
     	public int GetPriority() {return 4 ;}
  
-        public double Execute ( double[] a ) {
-            if(a.Length != GetArgAmmount() )
+        public double Execute ( List<double> a ) {
+            if(a.Count != GetArgAmmount() )
    				throw new Exception("Неверное число операндов !!") ;
             return Math.Pow ( a[0] , a[1] ) ;
         }
+    	public bool Infix() { return true ;}
     }
     
     public class Sin : IOperation   {
@@ -106,13 +116,14 @@ namespace Calculator
     	public int GetArgAmmount() {return  1 ;}
 
     	public string GetSignature () { return "sin" ;}
-    	public int GetPriority() {return 4 ;}    	
+    	public int GetPriority() {return 0 ;}    	
  
-        public double Execute ( double[] a ) {
-            if(a.Length != GetArgAmmount() )
+        public double Execute ( List<double> a ) {
+            if(a.Count != GetArgAmmount() )
    				throw new Exception("Неверное число операндов !!") ;
             return Math.Sin( a[0] ) ;
         }
+    	public bool Infix() { return false ;}
     }
     
     //унарный минус
@@ -123,11 +134,12 @@ namespace Calculator
     	public string GetSignature () { return "um" ;}
     	public int GetPriority() {return 1 ;}    	
  
-        public double Execute ( double[] a ) {
-            if(a.Length != GetArgAmmount() )
+        public double Execute ( List<double> a ) {
+            if(a.Count != GetArgAmmount() )
    				throw new Exception("Неверное число операндов !!") ;
             return  -a[0]  ;
         }
+    	public bool Infix() { return false ;}
     }
     
     
@@ -139,10 +151,11 @@ namespace Calculator
     	public int GetPriority() {return 1 ;}   
 
     	
-    	 public double Execute ( double[] a ) {
+    	 public double Execute ( List<double> a ) {
     		if(a != null )
    				throw new Exception("Невернный операнд !!") ;
             return 0 ;
     	}
+    	public bool Infix() { return false ;}
     }  
 }

@@ -45,9 +45,10 @@ namespace Calculator
 					continue ;
 				}
 						
-				//если s - символ арифмет. операции			
-				if( operKit.GetSignatureList().Contains(s) && s != "(") 
+				//если s - символ арифмет. операции	-- инфиксной (+ - ...)		
+				if( operKit.GetSignatureList().Contains(s) && s != "(" )
 					ArithmeticOperationHandle (operations , s , ref resLine ) ;
+				
 					
 				if( s == "(" ) 
 					 operations.Push(s) ;
@@ -79,21 +80,26 @@ namespace Calculator
 			return buffStr.Split('#') ;
 		}
 		
-		void ArithmeticOperationHandle (Stack<string> operations , string s , ref List<string > resLine ) {
-			//внести символ в стэк опреаций
-			if (operations.Count == 0 || operKit.GetPriorytiOf(s) > operKit.GetPriorytiOf(operations.Peek())) {
-				operations.Push(s);
-				return;
-			}				
-			//перенести сиволы из стэка опреаций в выводную строку
-			if (operKit.GetPriorytiOf(s) <= operKit.GetPriorytiOf(operations.Peek())) {
-				while (operations.Count > 0) {
-					if (operKit.GetPriorytiOf(s) > operKit.GetPriorytiOf(operations.Peek()))
-						break;
-					resLine.Add(operations.Pop());
-				}
-				operations.Push(s);
-			}			
+		void ArithmeticOperationHandle (Stack<string> operations , string oper , ref List<string > resLine ) {
+			//инфиксная операция
+			
+				//внести символ в стэк опреаций
+           	 	if (operations.Count == 0 || operKit.GetPriorytiOf(oper) > operKit.GetPriorytiOf(operations.Peek())) {
+            	    operations.Push(oper);
+               		 return;
+            	}				
+            	//перенести сиволы из стэка опреаций в выводную строку
+            	if (operKit.GetPriorytiOf(oper) <= operKit.GetPriorytiOf(operations.Peek())) {
+                	while (operations.Count > 0) {
+                    	if (operKit.GetPriorytiOf(oper) > operKit.GetPriorytiOf(operations.Peek()))
+                        	break;
+                   	 resLine.Add(operations.Pop());
+                	}
+                	operations.Push(oper);
+            	}	
+			
+	
+			
 		}
 		
 		void OperationsToResline (Stack<string> operations ,  ref List<string > resLine) {

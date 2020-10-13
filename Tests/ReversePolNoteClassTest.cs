@@ -34,7 +34,7 @@ namespace Tests
 			
 			List<string> result = reverseNote.GetRevPolNote() ;
 			List<string> pat = new System.Collections.Generic.List<string>();
-			pat.AddRange(new string[] { "2" , "4","5", "+" , "-" , "sin" ,  "30" , "+" , "+"} ) ;
+			pat.AddRange(new string[] { "2" , "4","5", "+" , "-" , "30" ,  "sin" , "+" , "+"} ) ;
 	
 			Assert.AreEqual( pat , result) ;
 		
