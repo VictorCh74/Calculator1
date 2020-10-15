@@ -116,12 +116,12 @@ namespace Calculator
     	public int GetArgAmmount() {return  1 ;}
 
     	public string GetSignature () { return "sin" ;}
-    	public int GetPriority() {return 0 ;}    	
+    	public int GetPriority() {return 4 ;}    	
  
         public double Execute ( List<double> a ) {
             if(a.Count != GetArgAmmount() )
    				throw new Exception("Неверное число операндов !!") ;
-            return Math.Sin( a[0] ) ;
+            return Math.Sin( a[0]*Math.PI/180 ) ;
         }
     	public bool Infix() { return false ;}
     }
