@@ -22,7 +22,7 @@ namespace Tests
 	{
 		class revNote: IReverse{
 			//1+sin(-30)
-			List <string> Note = new List <string> () {"1" ,  "30" , "-" , "sin" , "+"} ;
+			List <string> Note = new List <string> () {"1" ,  "30" , ";" , "-" , "sin" , "+"} ;
 			public List <string> GetRevPolNote() {
 				return Note ;
 			}
@@ -53,7 +53,7 @@ namespace Tests
 					
 			string result = CC.Caculate() ;
 			
-			Assert.AreEqual("1,5" , result ) ;
+			Assert.AreEqual("0,5" , result ) ;
 		}
 	}
 }

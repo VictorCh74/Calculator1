@@ -49,16 +49,13 @@ namespace Calculator
     
     public class Subst2  : IOperation   {
     	
-    	public int GetArgAmmount() {return  2 ;}
+    	public int GetArgAmmount() { return  2 ;}
   		
     	public string GetSignature () { return "-" ;}
     	public int GetPriority() {return 2 ;}
     	
     	
         public double Execute ( List<double> a ) {
-    		if(a.Count == 1 ){
-    			return -a[0];
-    		}
     		if(a.Count != GetArgAmmount() )
    				throw new Exception("Неверное число операндов !!") ;
     		return a[1] - a[0] ;

@@ -40,12 +40,12 @@ namespace Calculator
 
 			foreach( string s in inputSequence ) {
 				//если s - число			
-				if (regExNum.Match(s).Success){
+				if (IsNumber(s)){
 					resLine.Add(s) ;
 					continue ;
 				}
 						
-				//если s - символ арифмет. операции	-- инфиксной (+ - ...)		
+				//если s - символ арифмет. операции	 (+ - ... sin)		
 				if( operKit.GetSignatureList().Contains(s) && s != "(" )
 					ArithmeticOperationHandle (operations , s , ref resLine ) ;
 				
@@ -81,7 +81,7 @@ namespace Calculator
 		}
 		
 		void ArithmeticOperationHandle (Stack<string> operations , string oper , ref List<string > resLine ) {
-			//инфиксная операция
+				//инфиксная операция
 			
 				//внести символ в стэк опреаций
            	 	if (operations.Count == 0 || operKit.GetPriorytiOf(oper) > operKit.GetPriorytiOf(operations.Peek())) {
@@ -110,6 +110,10 @@ namespace Calculator
 				resLine.Add(operations.Pop()); 
 			}
 			operations.Pop();
+		}
+		
+		bool IsNumber (string s) {
+			return regExNum.Match(s).Success;
 		}
 	}
 }

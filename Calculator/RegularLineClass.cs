@@ -38,9 +38,22 @@ namespace Calculator
 			}
 		}
 		
+		void SetUnarMinus() {
+			StringBuilder SB = new StringBuilder(subjectString) ;
+			
+			if(SB[0] == '-') {
+				SB[0] = 'u';
+			}
+			SB.Replace("(-" , "(u") ;
+			subjectString = SB.ToString() ;
+			subjectString = subjectString.Replace("u" , "um") ;
+			SB=null ;
+		}
+		
 		override public string GetRegString(string s) {
 			subjectString = s ;
 			 RplacePoints() ;
+			 SetUnarMinus() ;
 			 return subjectString;
 		}
 		
