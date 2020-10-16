@@ -15,7 +15,6 @@ D:\Calculator\Calculator\obj\Debug\Calculator.pdb
 D:\Calculator\Calculator\bin\Debug\Calculator.exe.config
 D:\Calculator\Calculator\bin\Debug\Calculator.exe
 D:\Calculator\Calculator\bin\Debug\Calculator.pdb
-G:\Calculator\Calculator\obj\Debug\Calculator.csprojResolveAssemblyReference.cache
 D:\Calculator\Calculator\bin\Debug\Moq.dll
 D:\Calculator\Calculator\bin\Debug\Moq.xml
 D:\Calculator\Calculator\bin\Debug\Castle.Core.dll
@@ -32,3 +31,4 @@ G:\Calculator\Calculator\bin\Debug\Castle.Core.xml
 G:\Calculator\Calculator\bin\Debug\Moq.xml
 G:\Calculator\Calculator\bin\Debug\System.Runtime.CompilerServices.Unsafe.xml
 G:\Calculator\Calculator\bin\Debug\System.Threading.Tasks.Extensions.xml
+G:\Calculator\Calculator\obj\Debug\Calculator.csprojResolveAssemblyReference.cache

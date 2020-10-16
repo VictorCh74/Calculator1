@@ -42,6 +42,7 @@ namespace Tests
 			
 			public List<string> GetSignatureList () {return new List<string>() ;}
 			public bool IsAvalable(string s) {return true;}
+			
 		}
 		
 		

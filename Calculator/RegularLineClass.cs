@@ -47,7 +47,6 @@ namespace Calculator
 			SB.Replace("(-" , "(u") ;
 			subjectString = SB.ToString() ;
 			subjectString = subjectString.Replace("u" , "um") ;
-			SB=null ;
 		}
 		
 		override public string GetRegString(string s) {
