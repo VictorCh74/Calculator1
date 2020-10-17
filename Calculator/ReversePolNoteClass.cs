@@ -64,7 +64,7 @@ namespace Calculator
 		}
 	
 		
-		string[] FormInputSequence(string inpitStr ) {
+		string[] FormInputSequence (string inpitStr )  {
 			string buffStr = "" ;
 			// "s" -- разделитель лексем.
 			buffStr = inpitStr.Replace(operKit.GetSignatureList()[0] , "#"+operKit.GetSignatureList()[0]+"#") ;
