@@ -28,8 +28,6 @@ namespace Calculator
     	string GetSignature () ;
     	int GetPriority() ;
     	double Execute(List<double> a ) ;
-    	bool Infix() ;
-    	
     }
    	
     public class Sum2 : IOperation   {
@@ -44,7 +42,6 @@ namespace Calculator
    				throw new Exception("Неверное число операндов !!") ;
    			return a[0] + a[1] ;
         }
-   		public bool Infix() { return true ;}
     }
     
     public class Subst2  : IOperation   {
@@ -60,7 +57,6 @@ namespace Calculator
    				throw new Exception("Неверное число операндов !!") ;
     		return a[1] - a[0] ;
         }
-    	public bool Infix() { return true ;}
     }
     
     public class Mult2  : IOperation   {
@@ -75,7 +71,6 @@ namespace Calculator
    				throw new Exception("Неверное число операндов !!") ;
             return a[0] * a[1] ;
         }
-    	public bool Infix() { return true ;}
     }
     
     public class Div2  : IOperation   {
@@ -90,7 +85,6 @@ namespace Calculator
    				throw new Exception("Неверное число операндов !!") ;
             return a[0] / a[1] ;
         }
-    	public bool Infix() { return true ;}
     }
     
     public class Pow2  : IOperation   {
@@ -105,7 +99,6 @@ namespace Calculator
    				throw new Exception("Неверное число операндов !!") ;
             return Math.Pow ( a[0] , a[1] ) ;
         }
-    	public bool Infix() { return true ;}
     }
     
     public class Sin : IOperation   {
@@ -120,7 +113,6 @@ namespace Calculator
    				throw new Exception("Неверное число операндов !!") ;
             return Math.Sin( a[0]*Math.PI/180 ) ;
         }
-    	public bool Infix() { return false ;}
     }
     
     //унарный минус
@@ -136,7 +128,6 @@ namespace Calculator
    				throw new Exception("Неверное число операндов !!") ;
             return  -a[0]  ;
         }
-    	public bool Infix() { return false ;}
     }
     
     
@@ -153,6 +144,5 @@ namespace Calculator
    				throw new Exception("Невернный операнд !!") ;
             return 0 ;
     	}
-    	public bool Infix() { return false ;}
     }  
 }
