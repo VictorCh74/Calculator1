@@ -129,7 +129,7 @@ namespace Calculator
     	public int GetArgAmmount() {return  1 ;}
 
     	public string GetSignature () { return "um" ;}
-    	public int GetPriority() {return 1 ;}    	
+    	public int GetPriority() {return 2 ;}    	
  
         public double Execute ( List<double> a ) {
             if(a.Count != GetArgAmmount() )

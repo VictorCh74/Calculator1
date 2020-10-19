@@ -97,9 +97,6 @@ namespace Calculator
                 	}
                 	operations.Push(oper);
             	}	
-			
-	
-			
 		}
 		
 		void OperationsToResline (Stack<string> operations ,  ref List<string > resLine) {
